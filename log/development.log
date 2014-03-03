@@ -1,0 +1,1359 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20140301233247)
+  [4;36;1mSQL (3.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20140301233247')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2014-03-01 18:35:12) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 33ms (View: 28, DB: 0) | 200 OK [http://0.0.0.0/users/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2014-03-01 18:35:13) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2014-03-01 18:35:25) [POST]
+  Parameters: {"authenticity_token"=>"w/cLZhIqKjtrwQA7XTKmkV/97r78rdDBxM5P5Zz6Pmg=", "commit"=>"Create", "user"=>{"email"=>"sajil.koroth@gmail.com", "name"=>"Sajil"}}
+  [4;35;1mUser Create (1.4ms)[0m   [0mINSERT INTO "users" ("email", "updated_at", "name", "created_at") VALUES('sajil.koroth@gmail.com', '2014-03-01 23:35:25', 'Sajil', '2014-03-01 23:35:25')[0m
+Redirected to http://0.0.0.0:3001/users/1
+Completed in 13ms (DB: 1) | 302 Found [http://0.0.0.0/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2014-03-01 18:35:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://0.0.0.0/users/1]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2014-03-01 18:35:28) [GET]
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://0.0.0.0/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2014-03-01 18:36:19) [GET]
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 26429ms (View: 39, DB: 1) | 200 OK [http://0.0.0.0/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2014-03-01 18:38:38) [GET]
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 6866ms (View: 10, DB: 1) | 200 OK [http://0.0.0.0/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2014-03-02 01:12:49) [GET]
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 3032ms (View: 28, DB: 1) | 200 OK [http://0.0.0.0/users]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20140301233247)
+Migrating to CreateMicroposts (20140302233927)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20140302233927')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("microposts")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing MicropostsController#new (for ::1 at 2014-03-02 19:09:39) [GET]
+Rendering template within layouts/microposts
+Rendering microposts/new
+Completed in 93ms (View: 19, DB: 0) | 200 OK [http://localhost/microposts/new]
+
+
+Processing MicropostsController#create (for ::1 at 2014-03-02 19:09:52) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"YkKaW2H0aXUq7emO9SpQJifFKdxWTRDBnEWRgNYsV6c=", "micropost"=>{"content"=>"post 1", "user_id"=>"Sajil"}}
+  [4;35;1mMicropost Create (0.5ms)[0m   [0mINSERT INTO "microposts" ("updated_at", "created_at", "content", "user_id") VALUES('2014-03-03 00:09:52', '2014-03-03 00:09:52', 'post 1', 0)[0m
+Redirected to http://localhost:3001/microposts/1
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/microposts]
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 19:09:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMicropost Load (0.5ms)[0m   [0;1mSELECT * FROM "microposts" WHERE ("microposts"."id" = 1) [0m
+Rendering template within layouts/microposts
+Rendering microposts/show
+Completed in 16ms (View: 8, DB: 0) | 200 OK [http://localhost/microposts/1]
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 19:10:01) [GET]
+  [4;35;1mMicropost Load (0.7ms)[0m   [0mSELECT * FROM "microposts" [0m
+Rendering template within layouts/microposts
+Rendering microposts/index
+Completed in 20ms (View: 14, DB: 1) | 200 OK [http://localhost/microposts]
+
+
+Processing MicropostsController#new (for ::1 at 2014-03-02 19:10:07) [GET]
+Rendering template within layouts/microposts
+Rendering microposts/new
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/microposts/new]
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 19:10:10) [GET]
+  [4;36;1mMicropost Load (0.7ms)[0m   [0;1mSELECT * FROM "microposts" [0m
+Rendering template within layouts/microposts
+Rendering microposts/index
+Completed in 81ms (View: 75, DB: 1) | 200 OK [http://localhost/microposts]
+
+
+Processing MicropostsController#destroy (for ::1 at 2014-03-02 19:10:15) [DELETE]
+  Parameters: {"authenticity_token"=>"YkKaW2H0aXUq7emO9SpQJifFKdxWTRDBnEWRgNYsV6c=", "id"=>"1"}
+  [4;35;1mMicropost Load (0.5ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts"."id" = 1) [0m
+  [4;36;1mMicropost Destroy (0.3ms)[0m   [0;1mDELETE FROM "microposts" WHERE "id" = 1[0m
+Redirected to http://localhost:3001/microposts
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/microposts/1]
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 19:10:15) [GET]
+  [4;35;1mMicropost Load (1.4ms)[0m   [0mSELECT * FROM "microposts" [0m
+Rendering template within layouts/microposts
+Rendering microposts/index
+Completed in 9ms (View: 2, DB: 1) | 200 OK [http://localhost/microposts]
+
+
+Processing UsersController#index (for ::1 at 2014-03-02 19:10:43) [GET]
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 2699ms (View: 9, DB: 1) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#show (for ::1 at 2014-03-02 19:10:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 34402ms (View: 12, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing MicropostsController#new (for ::1 at 2014-03-02 19:11:47) [GET]
+Rendering template within layouts/microposts
+Rendering microposts/new
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/microposts/new]
+
+
+Processing MicropostsController#create (for ::1 at 2014-03-02 19:11:55) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"YkKaW2H0aXUq7emO9SpQJifFKdxWTRDBnEWRgNYsV6c=", "micropost"=>{"content"=>"Sajil Post", "user_id"=>"1"}}
+  [4;36;1mMicropost Create (0.5ms)[0m   [0;1mINSERT INTO "microposts" ("updated_at", "created_at", "content", "user_id") VALUES('2014-03-03 00:11:55', '2014-03-03 00:11:55', 'Sajil Post', 1)[0m
+Redirected to http://localhost:3001/microposts/2
+Completed in 15ms (DB: 1) | 302 Found [http://localhost/microposts]
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 19:11:55) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mMicropost Load (0.4ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts"."id" = 2) [0m
+Rendering template within layouts/microposts
+Rendering microposts/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/microposts/2]
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 19:11:58) [GET]
+  [4;36;1mMicropost Load (3.6ms)[0m   [0;1mSELECT * FROM "microposts" [0m
+Rendering template within layouts/microposts
+Rendering microposts/index
+Completed in 35ms (View: 24, DB: 4) | 200 OK [http://localhost/microposts]
+
+
+Processing MicropostsController#new (for ::1 at 2014-03-02 19:12:05) [GET]
+Rendering template within layouts/microposts
+Rendering microposts/new
+Completed in 13ms (View: 6, DB: 0) | 200 OK [http://localhost/microposts/new]
+
+
+Processing MicropostsController#create (for ::1 at 2014-03-02 19:12:11) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"YkKaW2H0aXUq7emO9SpQJifFKdxWTRDBnEWRgNYsV6c=", "micropost"=>{"content"=>"Sajil pos2", "user_id"=>"1"}}
+  [4;35;1mMicropost Create (0.4ms)[0m   [0mINSERT INTO "microposts" ("updated_at", "created_at", "content", "user_id") VALUES('2014-03-03 00:12:11', '2014-03-03 00:12:11', 'Sajil pos2', 1)[0m
+Redirected to http://localhost:3001/microposts/3
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/microposts]
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 19:12:11) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mMicropost Load (0.3ms)[0m   [0;1mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/microposts/3]
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 19:47:36) [GET]
+  Parameters: {"id"=>"3"}
+
+SyntaxError (/development/ws/rails_ws/demoapp/app/models/micropost.rb:2: syntax error, unexpected ':', expecting kEND
+   validates :content, length: { maximum: 140 }
+                              ^
+/development/ws/rails_ws/demoapp/app/models/micropost.rb:2: odd number list for Hash
+   validates :content, length: { maximum: 140 }
+                                         ^):
+  app/controllers/microposts_controller.rb:16:in `show'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (57.6ms)
+Rendered rescues/_request_and_response (20.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 19:50:59) [GET]
+  Parameters: {"id"=>"3"}
+
+SyntaxError (/development/ws/rails_ws/demoapp/app/models/micropost.rb:2: syntax error, unexpected ':', expecting kEND
+   validates :content, length: { maximum: 140 }
+                              ^
+/development/ws/rails_ws/demoapp/app/models/micropost.rb:2: odd number list for Hash
+   validates :content, length: { maximum: 140 }
+                                         ^):
+  app/controllers/microposts_controller.rb:16:in `show'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (122.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 19:54:54) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `length' for #<Class:0x1025aec10>):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:16:in `show'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (62.2ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 19:55:03) [GET]
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `length' for #<Class:0x102304a00>):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:5:in `index'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (162.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:28:36) [GET]
+  Parameters: {"id"=>"3"}
+
+SyntaxError (/development/ws/rails_ws/demoapp/app/models/micropost.rb:2: syntax error, unexpected ':', expecting kEND
+  validates :content, length: { maximum: 140 }
+                             ^
+/development/ws/rails_ws/demoapp/app/models/micropost.rb:2: odd number list for Hash
+  validates :content, length: { maximum: 140 }
+                                        ^):
+  app/controllers/microposts_controller.rb:16:in `show'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (51.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:30:24) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NameError (undefined local variable or method `length' for #<Class:0x1028386e8>):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:16:in `show'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (54.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:34:40) [GET]
+  Parameters: {"id"=>"3"}
+
+SyntaxError (/development/ws/rails_ws/demoapp/app/models/micropost.rb:2: syntax error, unexpected ':', expecting kEND
+  validates :content, length: { maximum: 140 }
+                             ^
+/development/ws/rails_ws/demoapp/app/models/micropost.rb:2: odd number list for Hash
+  validates :content, length: { maximum: 140 }
+                                        ^):
+  app/controllers/microposts_controller.rb:16:in `show'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (52.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:37:59) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NameError (undefined local variable or method `content' for #<Class:0x1027cfcb0>):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:16:in `show'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (55.7ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:39:18) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NameError (undefined local variable or method `content' for #<Class:0x1023f0ea0>):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:16:in `show'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (54.6ms)
+Rendered rescues/_request_and_response (71.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:39:42) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mMicropost Load (0.4ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/microposts/3]
+
+
+Processing MicropostsController#edit (for ::1 at 2014-03-02 20:39:45) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mMicropost Load (0.4ms)[0m   [0;1mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/edit
+Completed in 19ms (View: 13, DB: 0) | 200 OK [http://localhost/microposts/3/edit]
+
+
+Processing MicropostsController#edit (for ::1 at 2014-03-02 20:40:03) [GET]
+  Parameters: {"id"=>"3"}
+
+NameError (uninitialized constant Micropost::Content):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:37:in `edit'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (53.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#edit (for ::1 at 2014-03-02 20:42:08) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NameError (undefined local variable or method `content' for #<Class:0x1028939a8>):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:37:in `edit'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (53.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#edit (for ::1 at 2014-03-02 20:42:12) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NameError (undefined local variable or method `content' for #<Class:0x1024b6bc8>):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:37:in `edit'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (54.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#new (for ::1 at 2014-03-02 20:42:35) [GET]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NameError (undefined local variable or method `content' for #<Class:0x1028835f8>):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:27:in `new'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (53.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20140301233247)
+Migrating to CreateMicroposts (20140302233927)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("microposts")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20140301233247)
+Migrating to CreateMicroposts (20140302233927)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (55.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("microposts")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing MicropostsController#new (for ::1 at 2014-03-02 20:43:29) [GET]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NameError (undefined local variable or method `content' for #<Class:0x111e3b950>):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:27:in `new'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (57.4ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#edit (for ::1 at 2014-03-02 20:43:33) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NameError (undefined local variable or method `content' for #<Class:0x111af2ff0>):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:37:in `edit'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (121.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#edit (for ::1 at 2014-03-02 20:45:22) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NameError (undefined local variable or method `content' for #<Class:0x111d259a8>):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:37:in `edit'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (55.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#edit (for ::1 at 2014-03-02 20:46:56) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mMicropost Load (0.4ms)[0m   [0;1mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/edit
+Completed in 165ms (View: 158, DB: 0) | 200 OK [http://localhost/microposts/3/edit]
+
+
+Processing MicropostsController#update (for ::1 at 2014-03-02 20:47:00) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"YkKaW2H0aXUq7emO9SpQJifFKdxWTRDBnEWRgNYsV6c=", "id"=>"3", "micropost"=>{"content"=>"Sajil pos2", "user_id"=>"1"}}
+  [4;35;1mMicropost Load (0.4ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Redirected to http://localhost:3001/microposts/3
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/microposts/3]
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:47:00) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mMicropost Load (0.3ms)[0m   [0;1mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/show
+Completed in 16ms (View: 7, DB: 0) | 200 OK [http://localhost/microposts/3]
+
+
+Processing MicropostsController#edit (for ::1 at 2014-03-02 20:47:17) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mMicropost Load (0.3ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/edit
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/microposts/3/edit]
+
+
+Processing MicropostsController#update (for ::1 at 2014-03-02 20:47:19) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"YkKaW2H0aXUq7emO9SpQJifFKdxWTRDBnEWRgNYsV6c=", "id"=>"3", "micropost"=>{"content"=>"Sajil pos2", "user_id"=>"1"}}
+  [4;36;1mMicropost Load (0.4ms)[0m   [0;1mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Redirected to http://localhost:3001/microposts/3
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/microposts/3]
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:47:19) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mMicropost Load (0.4ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/show
+Completed in 81ms (View: 74, DB: 0) | 200 OK [http://localhost/microposts/3]
+
+
+Processing MicropostsController#edit (for ::1 at 2014-03-02 20:47:22) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mMicropost Load (0.5ms)[0m   [0;1mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/edit
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/microposts/3/edit]
+
+
+Processing MicropostsController#update (for ::1 at 2014-03-02 20:47:26) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"YkKaW2H0aXUq7emO9SpQJifFKdxWTRDBnEWRgNYsV6c=", "id"=>"3", "micropost"=>{"content"=>"Sajil pos2dsfdsfdsfds", "user_id"=>"1"}}
+  [4;35;1mMicropost Load (0.4ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+  [4;36;1mMicropost Update (0.6ms)[0m   [0;1mUPDATE "microposts" SET "content" = 'Sajil pos2dsfdsfdsfds', "updated_at" = '2014-03-03 01:47:26' WHERE "id" = 3[0m
+Redirected to http://localhost:3001/microposts/3
+Completed in 15ms (DB: 1) | 302 Found [http://localhost/microposts/3]
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:47:26) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mMicropost Load (0.4ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/microposts/3]
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:48:35) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `validates' for #<Class:0x111bad288>):
+  app/models/micropost.rb:3
+  app/controllers/microposts_controller.rb:16:in `show'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (118.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:48:50) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mMicropost Load (0.4ms)[0m   [0;1mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/microposts/3]
+
+
+Processing MicropostsController#edit (for ::1 at 2014-03-02 20:48:52) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mMicropost Load (0.5ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/edit
+Completed in 16ms (View: 8, DB: 0) | 200 OK [http://localhost/microposts/3/edit]
+
+
+Processing MicropostsController#update (for ::1 at 2014-03-02 20:48:53) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"YkKaW2H0aXUq7emO9SpQJifFKdxWTRDBnEWRgNYsV6c=", "id"=>"3", "micropost"=>{"content"=>"Sajil pos2dsfdsfdsfds", "user_id"=>"1"}}
+  [4;36;1mMicropost Load (0.4ms)[0m   [0;1mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Redirected to http://localhost:3001/microposts/3
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/microposts/3]
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:48:53) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mMicropost Load (0.4ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/microposts/3]
+
+
+Processing MicropostsController#new (for ::1 at 2014-03-02 20:49:21) [GET]
+Rendering template within layouts/microposts
+Rendering microposts/new
+Completed in 18ms (View: 11, DB: 0) | 200 OK [http://localhost/microposts/new]
+
+
+Processing MicropostsController#create (for ::1 at 2014-03-02 20:49:35) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"YkKaW2H0aXUq7emO9SpQJifFKdxWTRDBnEWRgNYsV6c=", "micropost"=>{"content"=>"NEw long postNEw long postNEw long postNEw long postNEw long post", "user_id"=>"1"}}
+  [4;36;1mMicropost Create (0.4ms)[0m   [0;1mINSERT INTO "microposts" ("updated_at", "content", "created_at", "user_id") VALUES('2014-03-03 01:49:35', 'NEw long postNEw long postNEw long postNEw long postNEw long post', '2014-03-03 01:49:35', 1)[0m
+Redirected to http://localhost:3001/microposts/4
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/microposts]
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:49:35) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mMicropost Load (0.4ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts"."id" = 4) [0m
+Rendering template within layouts/microposts
+Rendering microposts/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/microposts/4]
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 20:49:41) [GET]
+  [4;36;1mMicropost Load (0.9ms)[0m   [0;1mSELECT * FROM "microposts" [0m
+Rendering template within layouts/microposts
+Rendering microposts/index
+Completed in 32ms (View: 25, DB: 1) | 200 OK [http://localhost/microposts]
+
+
+Processing MicropostsController#show (for ::1 at 2014-03-02 20:49:46) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mMicropost Load (0.4ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/microposts/3]
+
+
+Processing MicropostsController#edit (for ::1 at 2014-03-02 20:49:51) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mMicropost Load (0.4ms)[0m   [0;1mSELECT * FROM "microposts" WHERE ("microposts"."id" = 3) [0m
+Rendering template within layouts/microposts
+Rendering microposts/edit
+Completed in 15ms (View: 8, DB: 0) | 200 OK [http://localhost/microposts/3/edit]
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 20:50:29) [GET]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `validates' for #<Class:0x111a3b210>):
+  app/models/micropost.rb:3
+  app/controllers/microposts_controller.rb:5:in `index'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (55.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 20:52:18) [GET]
+
+NameError (uninitialized constant ActiveModel):
+  app/models/micropost.rb:1
+  app/controllers/microposts_controller.rb:5:in `index'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (57.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 20:54:08) [GET]
+
+NameError (uninitialized constant Micropost::ActiveModel):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:5:in `index'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (55.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 20:54:58) [GET]
+
+TypeError (wrong argument type Class (expected Module)):
+  app/models/micropost.rb:2:in `extend'
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:5:in `index'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (54.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 20:56:12) [GET]
+
+NameError (uninitialized constant Micropost::ActiveModel):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:5:in `index'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (55.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 20:59:16) [GET]
+
+NameError (uninitialized constant Micropost::ActiveModel):
+  app/models/micropost.rb:2
+  app/controllers/microposts_controller.rb:5:in `index'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (59.5ms)
+Rendered rescues/_request_and_response (1.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 20:59:43) [GET]
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `validates' for #<Class:0x103484d70>):
+  app/models/micropost.rb:3
+  app/controllers/microposts_controller.rb:5:in `index'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_load'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/lib/ruby-debug.rb:101:in `debug_program'
+  /Library/Ruby/Gems/1.8/gems/ruby-debug-ide-0.4.5/bin/rdebug-ide:82
+  /usr/bin/rdebug-ide:19:in `load'
+  /usr/bin/rdebug-ide:19
+  -e:2:in `load'
+  -e:2
+
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered rescues/_trace (120.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing MicropostsController#index (for ::1 at 2014-03-02 21:00:03) [GET]
+  [4;36;1mMicropost Load (1.0ms)[0m   [0;1mSELECT * FROM "microposts" [0m
+Rendering template within layouts/microposts
+Rendering microposts/index
+Completed in 65ms (View: 58, DB: 1) | 200 OK [http://localhost/microposts]
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mMicropost Load (0.6ms)[0m   [0mSELECT * FROM "microposts" WHERE ("microposts".user_id = 1) [0m
